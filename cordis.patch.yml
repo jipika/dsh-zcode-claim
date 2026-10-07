@@ -1,0 +1,11 @@
+# dsh-zcode-claim bundle patch —— 一行 insert 即挂载。
+# ⚠ name 必须是 package.json 的完整包名（loader 按包名解析）。
+- insert:
+    - id: dsh-zcode-claim
+      name: 'dsh-zcode-claim'
+      config:
+        enabled: true
+        intervalMs: 1200000
+        firstDelayMs: 60000
+        autoLaunch: true
+        waitForMs: 120000

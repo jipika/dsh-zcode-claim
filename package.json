@@ -1,0 +1,39 @@
+{
+  "name": "dsh-zcode-claim",
+  "icon": "./assets/icon.svg",
+  "version": "0.1.0",
+  "description": "macOS DSH plugin: read ZCode's daily free quota card from the client's own local logs, auto-claim it by launching ZCode in the background (official claimManualPlan path), plus a guard timer, a status route and a zcode_quota tool. No LLM provider, no API key, no Electron fork.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./quota": "./lib/quota.js",
+    "./claim": "./lib/claim.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "package.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1",
+    "@deepseek-ai/dsh-tools": ">=0.1.5-rc.1"
+  },
+  "license": "MIT"
+}
